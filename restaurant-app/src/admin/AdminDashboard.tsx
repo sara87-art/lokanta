@@ -29,10 +29,11 @@ function AdminDashboard() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
+  // جلب الأصناف
   const getFoods = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/foods"
+        "https://lokanta-k3dl.onrender.com/api/foods"
       );
 
       setFoods(res.data);
@@ -46,6 +47,7 @@ function AdminDashboard() {
     getFoods();
   }, []);
 
+  // تغيير الحقول
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement |
@@ -59,6 +61,7 @@ function AdminDashboard() {
     });
   };
 
+  // اختيار الصورة
   const handleImageChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -69,6 +72,7 @@ function AdminDashboard() {
     }
   };
 
+  // إضافة / تعديل
   const handleSubmit = async (
     e: React.FormEvent
   ) => {
@@ -109,7 +113,7 @@ function AdminDashboard() {
       // تعديل
       if (editingId !== null) {
         await axios.put(
-          `http://localhost:5000/api/foods/${editingId}`,
+          `https://lokanta-k3dl.onrender.com/api/foods/${editingId}`,
           formData
         );
 
@@ -124,11 +128,12 @@ function AdminDashboard() {
           setMessage(
             "يرجى اختيار صورة للصنف"
           );
+          setLoading(false);
           return;
         }
 
         await axios.post(
-          "http://localhost:5000/api/foods",
+          "https://lokanta-k3dl.onrender.com/api/foods",
           formData
         );
 
@@ -137,6 +142,7 @@ function AdminDashboard() {
         );
       }
 
+      // تنظيف الفورم
       setForm({
         name: "",
         description: "",
@@ -160,6 +166,7 @@ function AdminDashboard() {
     }
   };
 
+  // تعديل صنف
   const handleEdit = (food: Food) => {
     setEditingId(food.id);
 
@@ -176,6 +183,7 @@ function AdminDashboard() {
     setMessage("");
   };
 
+  // إلغاء التعديل
   const handleCancelEdit = () => {
     setEditingId(null);
 
@@ -190,6 +198,7 @@ function AdminDashboard() {
     setMessage("");
   };
 
+  // حذف صنف
   const handleDelete = async (
     id: number
   ) => {
@@ -203,7 +212,7 @@ function AdminDashboard() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/foods/${id}`
+        `https://lokanta-k3dl.onrender.com/api/foods/${id}`
       );
 
       setMessage(
@@ -232,6 +241,7 @@ function AdminDashboard() {
         </p>
       )}
 
+      {/* فورم إضافة / تعديل */}
       <form
         className="admin-form"
         onSubmit={handleSubmit}
@@ -244,7 +254,6 @@ function AdminDashboard() {
           value={form.name}
           onChange={handleChange}
         />
-
 
         <input
           type="number"
@@ -311,6 +320,7 @@ function AdminDashboard() {
 
       <hr />
 
+      {/* عرض الأصناف */}
       <div className="admin-foods">
 
         {foods.map((food) => (
@@ -321,7 +331,7 @@ function AdminDashboard() {
           >
 
             <img
-              src={`http://localhost:5000/images/${food.image}`}
+              src={`https://lokanta-k3dl.onrender.com/images/${food.image}`}
               alt={food.name}
             />
 
