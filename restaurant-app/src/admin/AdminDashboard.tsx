@@ -23,8 +23,7 @@ function AdminDashboard() {
 
   const [image, setImage] = useState<File | null>(null);
 
-  const [editingId, setEditingId] =
-    useState<number | null>(null);
+  const [editingId, setEditingId] = useState<number | null>(null);
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -32,9 +31,7 @@ function AdminDashboard() {
   // جلب الأصناف
   const getFoods = async () => {
     try {
-      const res = await axios.get(
-        "https://lokanta-k3dl.onrender.com/api/foods"
-      );
+      const res = await axios.get("https://lokanta-1.onrender.com/api/foods");
 
       setFoods(res.data);
     } catch (error) {
@@ -50,10 +47,8 @@ function AdminDashboard() {
   // تغيير الحقول
   const handleChange = (
     e: React.ChangeEvent<
-      HTMLInputElement |
-      HTMLTextAreaElement |
-      HTMLSelectElement
-    >
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     setForm({
       ...form,
@@ -62,9 +57,7 @@ function AdminDashboard() {
   };
 
   // اختيار الصورة
-  const handleImageChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
 
     if (file) {
@@ -73,19 +66,11 @@ function AdminDashboard() {
   };
 
   // إضافة / تعديل
-  const handleSubmit = async (
-    e: React.FormEvent
-  ) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (
-      !form.name ||
-      !form.price ||
-      !form.category
-    ) {
-      setMessage(
-        "يرجى تعبئة الاسم والسعر والقسم"
-      );
+    if (!form.name || !form.price || !form.category) {
+      setMessage("يرجى تعبئة الاسم والسعر والقسم");
       return;
     }
 
@@ -96,15 +81,9 @@ function AdminDashboard() {
       const formData = new FormData();
 
       formData.append("name", form.name);
-      formData.append(
-        "description",
-        form.description
-      );
+      formData.append("description", form.description);
       formData.append("price", form.price);
-      formData.append(
-        "category",
-        form.category
-      );
+      formData.append("category", form.category);
 
       if (image) {
         formData.append("image", image);
@@ -113,33 +92,24 @@ function AdminDashboard() {
       // تعديل
       if (editingId !== null) {
         await axios.put(
-          `https://lokanta-k3dl.onrender.com/api/foods/${editingId}`,
-          formData
+          `https://lokanta-1.onrender.com/api/foods/${editingId}`,
+          formData,
         );
 
-        setMessage(
-          "تم تعديل الصنف بنجاح"
-        );
+        setMessage("تم تعديل الصنف بنجاح");
       }
 
       // إضافة
       else {
         if (!image) {
-          setMessage(
-            "يرجى اختيار صورة للصنف"
-          );
+          setMessage("يرجى اختيار صورة للصنف");
           setLoading(false);
           return;
         }
 
-        await axios.post(
-          "https://lokanta-k3dl.onrender.com/api/foods",
-          formData
-        );
+        await axios.post("https://lokanta-1.onrender.com/api/foods", formData);
 
-        setMessage(
-          "تمت إضافة الصنف بنجاح"
-        );
+        setMessage("تمت إضافة الصنف بنجاح");
       }
 
       // تنظيف الفورم
@@ -154,13 +124,10 @@ function AdminDashboard() {
       setEditingId(null);
 
       await getFoods();
-
     } catch (error) {
       console.log(error);
 
-      setMessage(
-        "حدث خطأ، حاول مرة أخرى"
-      );
+      setMessage("حدث خطأ، حاول مرة أخرى");
     } finally {
       setLoading(false);
     }
@@ -199,54 +166,32 @@ function AdminDashboard() {
   };
 
   // حذف صنف
-  const handleDelete = async (
-    id: number
-  ) => {
-    if (
-      !window.confirm(
-        "هل أنت متأكد من حذف هذا الصنف؟"
-      )
-    ) {
+  const handleDelete = async (id: number) => {
+    if (!window.confirm("هل أنت متأكد من حذف هذا الصنف؟")) {
       return;
     }
 
     try {
-      await axios.delete(
-        `https://lokanta-k3dl.onrender.com/api/foods/${id}`
-      );
+      await axios.delete(`https://lokanta-1.onrender.com/api/foods/${id}`);
 
-      setMessage(
-        "تم حذف الصنف بنجاح"
-      );
+      setMessage("تم حذف الصنف بنجاح");
 
       await getFoods();
-
     } catch (error) {
       console.log(error);
 
-      setMessage(
-        "حدث خطأ أثناء حذف الصنف"
-      );
+      setMessage("حدث خطأ أثناء حذف الصنف");
     }
   };
 
   return (
     <div className="admin-dashboard">
-
       <h1>لوحة التحكم</h1>
 
-      {message && (
-        <p className="admin-message">
-          {message}
-        </p>
-      )}
+      {message && <p className="admin-message">{message}</p>}
 
       {/* فورم إضافة / تعديل */}
-      <form
-        className="admin-form"
-        onSubmit={handleSubmit}
-      >
-
+      <form className="admin-form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
@@ -270,111 +215,65 @@ function AdminDashboard() {
           onChange={handleImageChange}
         />
 
-        <select
-          name="category"
-          value={form.category}
-          onChange={handleChange}
-        >
-          <option value="">
-            اختر القسم
-          </option>
+        <select name="category" value={form.category} onChange={handleChange}>
+          <option value="">اختر القسم</option>
 
-          <option value="الأصناف">
-            الأصناف
-          </option>
+          <option value="الأصناف">الأصناف</option>
 
-          <option value="المقبلات">
-            المقبلات
-          </option>
+          <option value="المقبلات">المقبلات</option>
 
-          <option value="العروض">
-            العروض
-          </option>
+          <option value="العروض">العروض</option>
 
-          <option value="المشروبات">
-            المشروبات
-          </option>
+          <option value="المشروبات">المشروبات</option>
         </select>
 
-        <button
-          type="submit"
-          disabled={loading}
-        >
+        <button type="submit" disabled={loading}>
           {loading
             ? "جاري الحفظ..."
             : editingId !== null
-            ? "حفظ التعديل"
-            : "إضافة الصنف"}
+              ? "حفظ التعديل"
+              : "إضافة الصنف"}
         </button>
 
         {editingId !== null && (
-          <button
-            type="button"
-            onClick={handleCancelEdit}
-          >
+          <button type="button" onClick={handleCancelEdit}>
             إلغاء التعديل
           </button>
         )}
-
       </form>
 
       <hr />
 
       {/* عرض الأصناف */}
       <div className="admin-foods">
-
         {foods.map((food) => (
-
-          <div
-            className="admin-food-card"
-            key={food.id}
-          >
-
+          <div className="admin-food-card" key={food.id}>
             <img
-              src={`https://lokanta-k3dl.onrender.com/images/${food.image}`}
+              src={`https://lokanta-1.onrender.com/images/${food.image}`}
               alt={food.name}
             />
 
-            <h3>
-              {food.name}
-            </h3>
+            <h3>{food.name}</h3>
 
-            <p>
-              {food.description}
-            </p>
+            <p>{food.description}</p>
 
-            <strong>
-              {food.price}$
-            </strong>
+            <strong>{food.price}$</strong>
 
-            <p>
-              {food.category}
-            </p>
+            <p>{food.category}</p>
 
-            <button
-              className="edit-btn"
-              onClick={() =>
-                handleEdit(food)
-              }
-            >
+            <button className="edit-btn" onClick={() => handleEdit(food)}>
               تعديل
             </button>
 
             <button
               className="delete-btn"
-              onClick={() =>
-                handleDelete(food.id)
-              }
+              onClick={() => handleDelete(food.id)}
             >
               حذف
             </button>
-
           </div>
-
         ))}
-
       </div>
-
     </div>
   );
 }
