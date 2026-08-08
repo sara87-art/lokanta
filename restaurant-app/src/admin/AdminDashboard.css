@@ -1,0 +1,300 @@
+/* =========================
+   Admin Dashboard
+========================= */
+
+.admin-dashboard {
+  min-height: 100vh;
+  padding: 40px;
+  background: #111;
+  color: #fff;
+  direction: rtl;
+  font-family: Arial, sans-serif;
+}
+
+/* العنوان */
+
+.admin-dashboard h1 {
+  margin: 0 0 10px;
+  color: #f5b400;
+  font-size: 38px;
+  text-align: center;
+}
+
+.admin-dashboard h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #f5b400;
+  margin: 12px auto 30px;
+  border-radius: 5px;
+}
+
+/* =========================
+   Form
+========================= */
+
+.admin-dashboard form {
+  max-width: 1100px;
+  margin: 0 auto 35px;
+  padding: 25px;
+  background: #1b1b1b;
+  border: 1px solid #333;
+  border-radius: 15px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Inputs */
+
+.admin-dashboard input,
+.admin-dashboard textarea,
+.admin-dashboard select {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 13px 15px;
+
+  background: #242424;
+  color: #fff;
+
+  border: 1px solid #444;
+  border-radius: 8px;
+
+  font-size: 15px;
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.admin-dashboard input::placeholder,
+.admin-dashboard textarea::placeholder {
+  color: #aaa;
+}
+
+.admin-dashboard input:focus,
+.admin-dashboard textarea:focus,
+.admin-dashboard select:focus {
+  border-color: #f5b400;
+  box-shadow: 0 0 0 2px rgba(245, 180, 0, 0.12);
+}
+
+/* الوصف يأخذ العرض كامل */
+
+.admin-dashboard textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* الزر */
+
+.admin-dashboard form button {
+  grid-column: 1 / -1;
+
+  padding: 13px 20px;
+
+  background: #f5b400;
+  color: #111;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.admin-dashboard form button:hover {
+  background: #ffc928;
+  transform: translateY(-2px);
+}
+
+/* الخط */
+
+.admin-dashboard hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 35px 0;
+}
+
+/* =========================
+   Foods
+========================= */
+
+.admin-foods {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* Card */
+
+.admin-food-card {
+  background: #1b1b1b;
+
+  border: 1px solid #333;
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  padding-bottom: 20px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+  transition: 0.3s;
+}
+
+.admin-food-card:hover {
+  transform: translateY(-5px);
+  border-color: #f5b400;
+}
+
+/* الصورة */
+
+.admin-food-card img {
+  width: 100%;
+  height: 220px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+/* اسم الصنف */
+
+.admin-food-card h3 {
+  margin: 18px 18px 8px;
+
+  color: #f5b400;
+
+  font-size: 22px;
+}
+
+/* الوصف */
+
+.admin-food-card p {
+  margin: 8px 18px;
+
+  color: #ccc;
+
+  line-height: 1.6;
+}
+
+/* السعر */
+
+.admin-food-card strong {
+  display: block;
+
+  margin: 12px 18px;
+
+  color: #f5b400;
+
+  font-size: 20px;
+}
+
+/* القسم */
+
+.admin-food-card p:last-of-type {
+  display: inline-block;
+
+  background: #292929;
+
+  color: #f5b400;
+
+  padding: 5px 12px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+}
+
+/* أزرار الكرت */
+
+.admin-food-card button {
+  margin-right: 10px;
+  margin-top: 10px;
+
+  padding: 9px 18px;
+
+  border: none;
+  border-radius: 7px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+/* تعديل */
+
+.admin-food-card button:first-of-type {
+  background: #f5b400;
+  color: #111;
+}
+
+.admin-food-card button:first-of-type:hover {
+  background: #ffc928;
+}
+
+/* حذف */
+
+.admin-food-card button:last-of-type {
+  background: #b52b2b;
+  color: white;
+}
+
+.admin-food-card button:last-of-type:hover {
+  background: #d93636;
+}
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 900px) {
+  .admin-foods {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-dashboard {
+    padding: 25px;
+  }
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 600px) {
+  .admin-dashboard {
+    padding: 18px;
+  }
+
+  .admin-dashboard h1 {
+    font-size: 30px;
+  }
+
+  .admin-dashboard form {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .admin-foods {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-food-card img {
+    height: 210px;
+  }
+}

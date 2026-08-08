@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+  font-family: Arial, sans-serif;
+}
+
+.navbar{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 120px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid orange;
+    background: #111;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.logo h2 {
+  color: orange;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.nav-links li {
+  color: orange;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-links li:hover {
+  color: rgb(224, 183, 114);
+  transition: 0.3s;
+}
+.hero{
+    background:#111;
+    color:rgb(247, 242, 242);
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+}
+
+.hero-img{
+    width:420px;
+    border-radius:15px;
+    box-shadow:0 0 25px rgba(255,166,0,.35);
+}
+
+.hero-title{
+    color:#f7a41d;
+    font-size:2.4rem;
+    font-weight:700;
+    margin-bottom:25px;
+    line-height:1.6;
+}
+
+.hero-text{
+    font-size:1.2rem;
+    color:#ddd;
+    line-height:2;
+}
+
+.contact-title{
+    color:white;
+    font-size:1.2rem;
+    font-weight:bold;
+    margin-left:15px;
+}
+
+.food-section{
+    background:#111;
+    padding:80px 0;
+}
+
+.food-card{
+    background:#1b1b1b;
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.4s;
+    color:white;
+}
+
+.food-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px orange;
+}
+
+.food-image{
+    height:260px;
+    object-fit:cover;
+}
+
+.food-card .card-body{
+    background:#f7a41d;
+    color:#111;
+}
+
+.food-card button{
+    font-weight:bold;
+}
+
+.map-container{
+    overflow:hidden;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(255,166,0,.3);
+}
+
+.footer{
+    background:#0d0d0d;
+    color:white;
+    padding:40px 0;
+}
+
+.footer p{
+    color:#ccc;
+}
+.navbar {
+  background-color: #111 !important;
+}

@@ -1,0 +1,212 @@
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: auto;
+
+    width: 320px;
+    height: 100vh;
+
+    background: #111;
+
+    padding: 25px;
+
+    overflow-y: auto;
+
+    z-index: 9999;
+
+    box-shadow: -5px 0 20px rgba(0,0,0,.6);
+}
+
+.sidebar h3{
+    color: orange;
+    margin-top: 25px;
+}
+
+.sidebar ul{
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li{
+    color: white;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.sidebar li:hover{
+    color: orange;
+    padding-left: 10px;
+}
+
+.sidebar input{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.close-btn{
+    float:right;
+    background:none;
+    border:none;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+}
+.menu-list{
+    list-style:none;
+    padding:0;
+}
+
+.menu-list li{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin:12px 0;
+
+    background:#1d1d1d;
+
+    padding:10px;
+
+    border-radius:10px;
+}
+
+.menu-list img{
+    width:55px;
+    height:55px;
+    border-radius:8px;
+    object-fit:cover;
+}
+
+.menu-list h5{
+    color:white;
+    margin:0;
+    font-size:15px;
+}
+
+.menu-list span{
+    color:orange;
+    font-size:13px;
+}
+
+.menu-list button{
+    background:orange;
+    border:none;
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100vh;
+  background: #1b1b1b;
+  overflow-y: auto;
+  padding: 20px;
+  z-index: 999;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #2a2a2a;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.sidebar li img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.sidebar li div {
+  flex: 1;
+}
+
+.sidebar li h5 {
+  color: white;
+  margin: 0;
+  font-size: 18px;
+}
+
+.sidebar li span {
+  color: #ffc107;
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
+}
+
+.sidebar li button {
+  background: #ffc107;
+  color: #000;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.sidebar li button:hover {
+  background: #ff9800;
+}
+
+.sidebar input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0 20px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.close-btn {
+  float: left;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.sidebar h2 {
+  color: #ffc107;
+  margin-bottom: 20px;
+}
+.foodSwiper {
+  width: 100%;
+  padding: 40px 0 70px;
+}
+
+.foodSwiper .swiper-slide {
+  width: 300px;
+  opacity: 0.6;
+  transform: scale(0.8);
+  transition: 0.4s;
+}
+
+.foodSwiper .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1.15);
+  z-index: 10;
+}
