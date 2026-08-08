@@ -11,7 +11,7 @@ function Offers() {
 
   useEffect(() => {
     axios
-      .get("http://https://lokanta-k3dl.onrender.com/api/foods")
+      .get("https://lokanta-k3dl.onrender.com/api/foods")
       .then((res) => setFoods(res.data))
       .catch((err) => console.log(err));
   }, []);
