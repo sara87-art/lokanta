@@ -7,13 +7,13 @@ type Props = {
 
 function MenuDropdown({ close }: Props) {
   const [search, setSearch] = useState("");
-const [foods, setFoods] = useState<any[]>([]);
-useEffect(() => {
-  axios
-    .get("http://localhost:5000/api/foods")
-    .then((res) => setFoods(res.data))
-    .catch((err) => console.log(err));
-}, []);
+  const [foods, setFoods] = useState<any[]>([]);
+  useEffect(() => {
+    axios
+      .get("http://https://lokanta-k3dl.onrender.com/api/foods")
+      .then((res) => setFoods(res.data))
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <div className="sidebar">
       <button className="close-btn" onClick={close}>
@@ -30,14 +30,14 @@ useEffect(() => {
       <ul className="food-list">
         {foods
           .filter((food) =>
-            food.name.toLowerCase().includes(search.toLowerCase())
+            food.name.toLowerCase().includes(search.toLowerCase()),
           )
           .map((food) => (
             <li key={food.id} className="food-item">
-           <img
-  src={`http://localhost:5000/images/${food.image}`}
-  alt={food.name}
-/>
+              <img
+                src={`http://https://lokanta-k3dl.onrender.com/images/${food.image}`}
+                alt={food.name}
+              />
 
               <div className="food-info">
                 <h5>{food.name}</h5>
@@ -48,9 +48,9 @@ useEffect(() => {
                 onClick={() =>
                   window.open(
                     `https://wa.me/905312482977?text=${encodeURIComponent(
-                      `أريد طلب ${food.name}`
+                      `أريد طلب ${food.name}`,
                     )}`,
-                    "_blank"
+                    "_blank",
                   )
                 }
               >

@@ -1,47 +1,42 @@
-import { Container,  } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import FoodCard from "./FoodCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Offers() {
-   const [foods, setFoods] = useState<any[]>([]);
+  const [foods, setFoods] = useState<any[]>([]);
 
-useEffect(() => {
-  axios
-    .get("http://localhost:5000/api/foods")
-    .then((res) => setFoods(res.data))
-    .catch((err) => console.log(err));
-}, []);
+  useEffect(() => {
+    axios
+      .get("http://https://lokanta-k3dl.onrender.com/api/foods")
+      .then((res) => setFoods(res.data))
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <section className="food-section py-5">
       <Container>
+        <h2 className="text-center text-warning mb-5">العروض </h2>
 
-        <h2 className="text-center text-warning mb-5">
-العروض        </h2>
-
-          <Swiper
+        <Swiper
           effect={"slide"}
           grabCursor={true}
           centeredSlides={false}
           loop={true}
-     breakpoints={{
-  0: {
-    slidesPerView: 2,
-  },
-  768: {
-    slidesPerView: 3,
-  },
-  992: {
-    slidesPerView: 4,
-  },
-}}
-spaceBetween={30}
-
-     
+          breakpoints={{
+            0: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            992: {
+              slidesPerView: 4,
+            },
+          }}
+          spaceBetween={30}
           className="foodSwiper"
         >
           {foods
@@ -56,7 +51,6 @@ spaceBetween={30}
               </SwiperSlide>
             ))}
         </Swiper>
-
       </Container>
     </section>
   );

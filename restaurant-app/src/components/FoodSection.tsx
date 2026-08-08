@@ -13,7 +13,7 @@ function FoodSection() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/foods")
+      .get("http://https://lokanta-k3dl.onrender.com/api/foods")
       .then((res) => setFoods(res.data))
       .catch((err) => console.log(err));
   }, []);
