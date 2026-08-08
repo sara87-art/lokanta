@@ -11,7 +11,7 @@ function FoodCard({ image, name, price }: FoodCardProps) {
     <Card className="food-card">
       <Card.Img
         variant="top"
-        src={`https://lokanta-1.onrender.com/images/${image}`}
+        src={`https://lokanta-2.onrender.com/images/${image}`}
         className="food-image"
       />
 

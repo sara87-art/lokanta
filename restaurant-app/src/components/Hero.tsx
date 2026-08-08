@@ -10,7 +10,7 @@ function Hero() {
           {/* الصورة */}
           <Col lg={5} md={6} className="text-center mb-4 mb-md-0">
             <img
-              src="https://lokanta-1.onrender.com/images/burger.jpg"
+              src="https://lokanta-2.onrender.com/images/burger.jpg"
               alt="Burger"
               className="img-fluid hero-img"
             />

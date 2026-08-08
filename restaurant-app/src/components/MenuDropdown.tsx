@@ -10,7 +10,7 @@ function MenuDropdown({ close }: Props) {
   const [foods, setFoods] = useState<any[]>([]);
   useEffect(() => {
     axios
-      .get("https://lokanta-1.onrender.com/api/foods")
+      .get("https://lokanta-2.onrender.com/api/foods")
       .then((res) => setFoods(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -35,7 +35,7 @@ function MenuDropdown({ close }: Props) {
           .map((food) => (
             <li key={food.id} className="food-item">
               <img
-                src={`https://lokanta-1.onrender.com/images/${food.image}`}
+                src={`https://lokanta-2.onrender.com/images/${food.image}`}
                 alt={food.name}
               />
 

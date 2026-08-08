@@ -10,7 +10,7 @@ function Navbar() {
       <nav className="navbar">
         <div className="logo">
           <img
-            src="https://lokanta-1.onrender.com/images/logo.jpg"
+            src="https://lokanta-2.onrender.com/images/logo.jpg"
             alt="Logo"
           />
           <h2>Flavor Haven</h2>

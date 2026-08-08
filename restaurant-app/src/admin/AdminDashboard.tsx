@@ -31,7 +31,7 @@ function AdminDashboard() {
   // جلب الأصناف
   const getFoods = async () => {
     try {
-      const res = await axios.get("https://lokanta-1.onrender.com/api/foods");
+      const res = await axios.get("https://lokanta-2.onrender.com/api/foods");
 
       setFoods(res.data);
     } catch (error) {
@@ -92,7 +92,7 @@ function AdminDashboard() {
       // تعديل
       if (editingId !== null) {
         await axios.put(
-          `https://lokanta-1.onrender.com/api/foods/${editingId}`,
+          `https://lokanta-2.onrender.com/api/foods/${editingId}`,
           formData,
         );
 
@@ -107,7 +107,7 @@ function AdminDashboard() {
           return;
         }
 
-        await axios.post("https://lokanta-1.onrender.com/api/foods", formData);
+        await axios.post("https://lokanta-2.onrender.com/api/foods", formData);
 
         setMessage("تمت إضافة الصنف بنجاح");
       }
@@ -172,7 +172,7 @@ function AdminDashboard() {
     }
 
     try {
-      await axios.delete(`https://lokanta-1.onrender.com/api/foods/${id}`);
+      await axios.delete(`https://lokanta-2.onrender.com/api/foods/${id}`);
 
       setMessage("تم حذف الصنف بنجاح");
 
@@ -249,7 +249,7 @@ function AdminDashboard() {
         {foods.map((food) => (
           <div className="admin-food-card" key={food.id}>
             <img
-              src={`https://lokanta-1.onrender.com/images/${food.image}`}
+              src={`https://lokanta-2.onrender.com/images/${food.image}`}
               alt={food.name}
             />
 
